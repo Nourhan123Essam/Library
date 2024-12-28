@@ -62,6 +62,17 @@
     <Folder Include="dbo\Tables\" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="dbo\Tables\Book.sql" />
+    <Build Include="dbo\Tables\Books.sql" />
+    <Build Include="dbo\Tables\Authors.sql" />
+    <Build Include="dbo\Tables\Publishers.sql" />
+    <Build Include="dbo\Tables\Readers.sql" />
+    <Build Include="dbo\Tables\Categories.sql" />
+    <Build Include="dbo\Tables\BookAuthors.sql" />
+    <Build Include="dbo\Tables\BookPublishers.sql" />
+    <Build Include="dbo\Tables\Checkouts.sql" />
+    <Build Include="dbo\Tables\CheckedBooks.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="dbo\SampleData.sql" />
   </ItemGroup>
 </Project>

@@ -1,0 +1,5 @@
+﻿CREATE TABLE Authors (
+    AuthorId INT IDENTITY(1,1) PRIMARY KEY,
+    Name NVARCHAR(150) NOT NULL,
+    Bio NVARCHAR(MAX)
+);

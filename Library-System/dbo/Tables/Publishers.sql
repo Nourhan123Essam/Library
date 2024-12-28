@@ -1,0 +1,7 @@
+﻿CREATE TABLE Publishers (
+    PublisherId INT IDENTITY(1,1) PRIMARY KEY,
+    Name NVARCHAR(200) NOT NULL UNIQUE,
+    Address NVARCHAR(300),
+    Phone NVARCHAR(15),
+    Email NVARCHAR(100) UNIQUE
+);

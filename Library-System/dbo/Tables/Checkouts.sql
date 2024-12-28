@@ -1,0 +1,8 @@
+﻿CREATE TABLE Checkouts (
+    CheckoutId INT IDENTITY(1,1) PRIMARY KEY,
+    ReaderId INT NOT NULL,
+    CheckoutDate DATETIME2 NOT NULL DEFAULT GETDATE(),
+    DueDate DATETIME2 NOT NULL,
+    ReturnDate DATETIME2 NULL,
+    CONSTRAINT FK_Checkouts_Readers FOREIGN KEY (ReaderId) REFERENCES Readers(ReaderId) ON DELETE CASCADE
+);

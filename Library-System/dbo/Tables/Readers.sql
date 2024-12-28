@@ -1,0 +1,8 @@
+﻿CREATE TABLE Readers (
+    ReaderId INT IDENTITY(1,1) PRIMARY KEY,
+    Name NVARCHAR(100) NOT NULL,
+    Email NVARCHAR(100) UNIQUE,
+    Phone NVARCHAR(15),
+    Address NVARCHAR(200),
+    CreatedAt DATETIME2 DEFAULT GETDATE()
+);
