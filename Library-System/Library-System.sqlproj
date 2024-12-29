@@ -60,6 +60,9 @@
     <Folder Include="Properties" />
     <Folder Include="dbo\" />
     <Folder Include="dbo\Tables\" />
+    <Folder Include="dbo\Views\" />
+    <Folder Include="dbo\Functions\" />
+    <Folder Include="dbo\Stored Procedures\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Books.sql" />
@@ -71,6 +74,12 @@
     <Build Include="dbo\Tables\BookPublishers.sql" />
     <Build Include="dbo\Tables\Checkouts.sql" />
     <Build Include="dbo\Tables\CheckedBooks.sql" />
+    <Build Include="dbo\Views\BooksWithAuthorsAndPublishers.sql" />
+    <Build Include="dbo\Functions\GetReaderFullName.sql" />
+    <Build Include="dbo\Functions\CalculateOverdueDays.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateBookDetails.sql" />
+    <Build Include="dbo\Stored Procedures\DeleteBook.sql" />
+    <Build Include="dbo\Stored Procedures\AddNewBook.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\SampleData.sql" />
