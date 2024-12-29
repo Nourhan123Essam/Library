@@ -11,6 +11,8 @@ Welcome to the **Library Management System**! This system allows users to manage
 
 The system uses a relational database to store data and manage the relationships between these entities.
 
+--- 
+
 ## 🗂️ Database Overview
 
 The **Library Management System** uses a normalized database schema with several tables to manage the data. The relationships between entities are modeled using foreign keys and normalization techniques to ensure data integrity and reduce redundancy.
@@ -61,6 +63,42 @@ The following diagrams visually represent the structure of the database:
 
 ![Schema Diagram](https://github.com/Nourhan123Essam/Library/blob/master/Demo%20Images%20of%20the%20project/Schema.png)  
 *Figure 3: Schema Diagram*
+
+---
+
+## Stored Objects 🛠️
+Stored objects include **Tables**, **Stored Procedures**, **Functions**, **Triggers**, and **Views**. These objects are essential for storing complex queries and business logic in the database.
+
+### Benefits of Using Stored Objects:
+- **Performance**: By using stored objects, SQL Server can create and cache the **Execution Plan** one time. This saves time and resources by preventing the need to recreate the execution plan with each query.
+- **Best Practice**: It's a best practice to create stored objects for frequently used queries to improve **performance** and optimize **resource usage**.
+- **Indexing**: Indexing is crucial for **performance** but should be used carefully. Indexes improve query speed but can cause overhead on **INSERT**, **UPDATE**, and **DELETE** operations. A balance is needed.
+
+### Security Enhancement 🔒:
+Stored objects also enhance the **security** of the database by:
+- **Encapsulating logic**: Prevents direct access to sensitive tables and controls the data that can be accessed or modified.
+- **User permissions**: Allows you to grant permissions to execute stored procedures, functions, and views without exposing underlying tables.
+- **Reduced SQL injection risk**: Using parameterized queries inside stored procedures mitigates the risk of SQL injection attacks.
+- **Centralized control**: Security policies can be centralized in stored procedures, ensuring consistent enforcement across the database.
+
+### Stored Objects That Don't Require Indexes:
+These stored objects perform well without the need for indexes:
+- **CalculateOverdueDays** (Function): Calculates overdue days for checkouts.
+- **GetReaderFullName** (Function): Returns the full name of the reader.
+- **AddNewBook** (Stored Procedure): Adds a new book to the library.
+- **DeleteBook** (Stored Procedure): Deletes a book from the library.
+- **UpdateBookDetails** (Stored Procedure): Updates book details.
+- **BooksWithAuthorsAndPublishers** (View): Retrieves book names along with authors and publishers.
+
+### Stored Objects That Require Indexes:
+These stored objects perform better with proper indexing:
+- **GetBooksByCategory** (Stored Procedure): Retrieves books by category.
+- **GetBookByAuthor** (Stored Procedure): Retrieves books by a specific author.
+- **GetBookByPublisher** (Stored Procedure): Retrieves books by publisher.
+- **GetBooksCheckedOutByReader** (Stored Procedure): Retrieves books checked out by a specific reader.
+
+---
+
 
 ## 📊 Sample Data
 
