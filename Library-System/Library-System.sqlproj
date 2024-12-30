@@ -80,8 +80,12 @@
     <Build Include="dbo\Stored Procedures\UpdateBookDetails.sql" />
     <Build Include="dbo\Stored Procedures\DeleteBook.sql" />
     <Build Include="dbo\Stored Procedures\AddNewBook.sql" />
+    <Build Include="dbo\Views\BooksWithCategoriesAndAuthors.sql" />
+    <Build Include="dbo\Stored Procedures\GetBooksByCategory.sql" />
+    <Build Include="dbo\Stored Procedures\GetBookByAuthor.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\SampleData.sql" />
+    <None Include="dbo\DataGenerators.sql" />
   </ItemGroup>
 </Project>
