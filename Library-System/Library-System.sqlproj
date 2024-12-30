@@ -83,6 +83,12 @@
     <Build Include="dbo\Views\BooksWithCategoriesAndAuthors.sql" />
     <Build Include="dbo\Stored Procedures\GetBooksByCategory.sql" />
     <Build Include="dbo\Stored Procedures\GetBookByAuthor.sql" />
+    <Build Include="dbo\Views\ReaderActivitySummary.sql" />
+    <Build Include="dbo\Views\OverdueBooks.sql" />
+    <Build Include="dbo\Views\BooksByPublisher.sql" />
+    <Build Include="dbo\Stored Procedures\MostCheckedOutBooks.sql" />
+    <Build Include="dbo\Functions\GetAuthorAge.sql" />
+    <Build Include="dbo\Stored Procedures\PopularBooks.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\SampleData.sql" />
