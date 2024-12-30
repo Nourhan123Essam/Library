@@ -81,6 +81,50 @@ Stored objects also enhance the **security** of the database by:
 - **Reduced SQL injection risk**: Using parameterized queries inside stored procedures mitigates the risk of SQL injection attacks.
 - **Centralized control**: Security policies can be centralized in stored procedures, ensuring consistent enforcement across the database.
 
+---
+
+### 📌 **Stored Objects That Benefit from Indexing**
+Indexes significantly improve the performance of specific stored objects by optimizing query execution. Here are the stored objects that see noticeable benefits:
+
+- **`GetBooksByCategory`** (Stored Procedure): Retrieves books by category.  
+- **`GetBookByAuthor`** (Stored Procedure): Retrieves books by a specific author.  
+- **`BooksWithCategoriesAndAuthors`** (View): Displays books along with their categories and authors.  
+
+---
+
+### 🔍 **Analyzing the Impact of Indexing: `GetBookByAuthor` Stored Procedure**
+Let's compare the performance of the `GetBookByAuthor` stored procedure **before** and **after** applying an index.
+
+---
+
+#### 🚫 **Without Index**
+- The execution plan for the `GetBookByAuthor` stored procedure shows the following results:
+  - **Physical Operation**: `Clustered Index Scan` (This indicates a row-by-row search, relying on the default primary key index).
+  - **Actual Number of Rows Read**: **534** rows.  
+  - This operation is less efficient because a full table scan is performed.  
+
+![Screenshot](https://github.com/Nourhan123Essam/Library_System_DataBase_SQL_Server/blob/master/Demo%20Images%20of%20the%20project/without%20using%20index.png)  
+*Figure 1: Execution Plan Without Index for `GetBookByAuthor` Stored Procedure*
+
+---
+
+#### ✅ **With Index**
+- After creating a **non-clustered index** on the `AuthorId` column in the `BookAuthors` table, the execution plan shows significant improvements:
+  - **Physical Operation**: `Index Seek` (This uses the newly created index, allowing subtree-based searching for faster lookups).
+  - **Actual Number of Rows Read**: **4** rows (a drastic reduction compared to 534 rows).  
+  - This operation is much more efficient as the query directly navigates to the relevant rows.
+
+![Screenshot](https://github.com/Nourhan123Essam/Library_System_DataBase_SQL_Server/blob/master/Demo%20Images%20of%20the%20project/using%20index.png)  
+*Figure 2: Execution Plan With Index for `GetBookByAuthor` Stored Procedure*
+
+---
+
+### 🎯 **Key Takeaways**
+- **Without Index**: The query performs a `Clustered Index Scan`, leading to higher read operations and slower performance.  
+- **With Index**: The query performs an `Index Seek`, drastically reducing the number of rows read and improving performance.  
+- Proper indexing optimizes query execution, reduces table scans, and enhances overall system performance.  
+
+---
 ### Stored Objects That Don't Require Indexes:
 These stored objects perform well without the need for indexes:
 - **CalculateOverdueDays** (Function): Calculates overdue days for checkouts.
@@ -90,12 +134,6 @@ These stored objects perform well without the need for indexes:
 - **UpdateBookDetails** (Stored Procedure): Updates book details.
 - **BooksWithAuthorsAndPublishers** (View): Retrieves book names along with authors and publishers.
 
-### Stored Objects That Require Indexes:
-These stored objects perform better with proper indexing:
-- **GetBooksByCategory** (Stored Procedure): Retrieves books by category.
-- **GetBookByAuthor** (Stored Procedure): Retrieves books by a specific author.
-- **GetBookByPublisher** (Stored Procedure): Retrieves books by publisher.
-- **GetBooksCheckedOutByReader** (Stored Procedure): Retrieves books checked out by a specific reader.
 
 ---
 
